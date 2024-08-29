@@ -61,15 +61,19 @@ class Library:
 # Crear los libros
 book1 = Book("El principito", "Antoine de saint")
 book2 = Book("1984", "George Orwell")
+book3 = Book("El Padrino", "Mario Puzo")
 
 # Crear usuario
 user1 = User("001", "German")
+user2 = User("002", "Yanira Mendoza")
 
 # Crear Biblioteca
 library = Library()
 library.add_book(book1)
 library.add_book(book2)
+library.add_book(book3)
 library.register_user(user1)
+library.register_user(user2)
 
 # Mostrar libros
 library.show_available_books()
