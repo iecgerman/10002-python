@@ -1,3 +1,7 @@
+# Fundamentos de Programación y Python
+
+# Práctica: Te doy la bienvenida a los ejercicios interactivos
+
 '''
 Hola, te doy la bienvenida al Coding Playground, un lugar donde podrás practicar tus conocimientos de Python de manera interactiva 🤯.
 
