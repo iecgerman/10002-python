@@ -1,74 +1,170 @@
-# Funciones y Manejo de Excepciones en Python
+# Control de Flujo en Python
 
-# Uso de Funciones en Python
+# Generadores e Iteradores
 
-# def greet():
-#     print('Hola Mundo')
+# Ejemplo de iterador
 
-# greet()
+# Crear una lista
 
-# def greet(name):
-#     print("Hola", name)
+my_list = [1,2,3,4]
 
-# greet('German')
-# greet('Yanira')
+# Obtener el iterador
 
-# def greet(name, last_name):
-#     print('Hola', name, last_name)
+my_iter = iter(my_list)
 
-# greet("German", "Garcia")
-# greet("Yanira", "Mendoza")
+# Usar el iterador
+# print(next(my_iter))
+
+#1
+
+# print(next(my_iter))
+# print(next(my_iter))
+
+#1
+#2
+
+# print(next(my_iter))
+# print(next(my_iter))
+# print(next(my_iter))
+# print(next(my_iter))
+
+# 1
+# 2
+# 3
+# 4
+
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+print(next(my_iter))
+# print(next(my_iter))
+
+# Traceback (most recent call last):
+#   File "c:\Users\info\10002-python\clase17.py", line 40, in <module>
+#     print(next(my_iter))
+#           ^^^^^^^^^^^^^
+# StopIteration
 
 
-# def greet(name, last_name="FALTO SU APELLIDO"):
-#     print('Hola', name, last_name)
+# Iterar en cadenas
+# Creando la cadena
+text = "Hola mundo"
+# Creando el iterador
+iter_text = iter(text)
 
-# greet("German")
-# greet("Yanira", "Mendoza")
+# Iterar en la cadena
+for char in iter_text:
+    print(char)
 
-# greet(last_name="MENDOZA", name="YANIRA")
+# H
+# o
+# l
+# a
 
-def sumando(a,b):
-    return a+b
+# m
+# u
+# n
+# d
+# o
 
-def restando(a,b):
-    return a-b
+# Crear un iterador para los numeros impares
 
-def multiplicando(a,b):
-    return a*b
+#Limite
+limit = 10
 
-def dividiendo(a,b):
-    return a/b
+#Crear iterador
+odd_itter =  iter(range(1,limit+1,2))
 
-def calculadora():
-    while True:
-        print("Selecciones una operación")
-        print("1. Suma")
-        print("2. Resta")
-        print("3. Multiplicación")
-        print("4. División")
-        print("5. Exit")
+# Usar el iterador
+for num in odd_itter:
+    print(num)
 
-        option = input("Ingresa su opción 1,2,3,4 o 5: ")
+# 1
+# 3
+# 5
+# 7
+# 9
 
-        if option == "5":
-            print("Esta saliendo de la calculadora")
-            break
-        
-        if option in ["1","2","3","4"]:
-            num1 = float(input("Ingrese el primer numero: "))
-            num2 = float(input("Ingrese el segundo numero: "))
+# Numeros pares
+odd_itter =  iter(range(0,limit+1,2))
 
-            if option == "1":
-                print("La suma es: ", sumando(num1, num2))
-            elif option == "2":
-                print("La resta es:", restando(num1, num2))
-            elif option == "3":
-                print("La multiplicación es: ", multiplicando(num1,num2))
-            elif option == "4":
-                print("La división es: ", dividiendo(num1,num2))
-        
-        else:
-            print("Opción no válida, por favor intente de nuevo")
+# Usar el iterador
+for num in odd_itter:
+    print(num)
 
-calculadora()
+# 0
+# 2
+# 4
+# 6
+# 8
+# 10
+
+# GENERADOR
+
+def my_generator():
+    yield 1
+    yield 2
+    yield 3
+
+for value in my_generator():
+    print(value)
+
+# 1
+# 2
+# 3
+
+# SERIE DE FIBONACCI
+
+#  1 1 2 3 5 8 13 21 . . .
+
+def fibonacci(limit):
+    a, b = 0, 1
+    while a< limit:
+        yield a
+        a,b = b, a+b
+
+for num in fibonacci(10):
+    print(num)
+
+# 0
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+
+print("***** RETO IMPARES ******")
+
+def odd_generator(limit):
+    odd_num = 1
+    while odd_num < limit:
+        yield odd_num
+        odd_num += 2
+for result in odd_generator(10):
+    print(result)
+
+# ***** RETO IMPARES ******
+# 1
+# 3
+# 5
+# 7
+# 9
+
+
+print("***** RETO PARES ******")
+
+def odd_generator(limit):
+    pair_num = 0
+    while pair_num < limit:
+        yield pair_num
+        pair_num += 2
+for result in odd_generator(10):
+    print(result)
+
+# ***** RETO PARES ******
+# 0
+# 2
+# 4
+# 6
+# 8

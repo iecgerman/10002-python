@@ -1,98 +1,35 @@
 # Control de Flujo en Python
 
-# Bucles y Control de Iteraciones
+# Estructuras condicionales
 
-numbers = [1,2,3,4,5,6]
-for i in numbers:
-    print("Aqui i es igual a:", i+1)
+# x = 5
 
-# Aqui i es igual a: 2
-# Aqui i es igual a: 3
-# Aqui i es igual a: 4
-# Aqui i es igual a: 5
-# Aqui i es igual a: 6
-# Aqui i es igual a: 7
+# if x > 5:
+#     print("X es mayor que 5")
+# elif x==5:
+#     print("x es iugal que 5")
+# else:
+#     print("X es menor que 5")
+# print("afuera")
 
-for i in range(10):
-    print(i)
+# x = 1
+# y = 26
 
-# 0
-# 1
-# 2
-# 3
-# 4
-# 5
-# 6
-# 7
-# 8
-# 9
+# if x>10 and y>25:
+#     print("X es mayor que 10 y Y es mayor que 15")
 
-for i in range(1,11):
-    print(i)
+# if x>10 or y>25:
+#     print("X es mayor que 10 o Y es mayor que 25")
 
-# 1
-# 2
-# 3
-# 4
-# 5
-# 6
-# 7
-# 8
-# 9
-# 10
+# if not x>10:
+#     print("X no es mayor que 10")
 
-fruits = ["Manzana", "Pera", "Uva", "Naranja", "Tomate"]
-for fruit in fruits:
-    print(fruit)
-    if fruit == "Naranja":
-        print("Naranja encontrada")
-
-# Manzana
-# Pera
-# Uva
-# Naranja
-# Naranja encontrada
-# Tomate
-
-x = 0
-while x<5:
-    print(x)
-    x += 1
-
-# 0
-# 1
-# 2
-# 3
-# 4
-
-x=0
-while x<5:
-    if x==3:
-        break
-    print(x)
-    x +=1
-
-# 0
-# 1
-# 2
-
-numbers = [1,2,3,4,5,6]
-for i in numbers:
-    if i == 3:
-        continue
-    print("Aqui i es igual a:", i)
-
-# Aqui i es igual a: 1
-# Aqui i es igual a: 2
-# Aqui i es igual a: 4
-# Aqui i es igual a: 5
-# Aqui i es igual a: 6
-
-numbers = [1,2,3,4,5,6]
-for i in numbers:
-    if i == 3:
-        break
-    print("Aqui i es igual a:", i)
-
-# Aqui i es igual a: 1
-# Aqui i es igual a: 2
+is_member = True
+age = 11
+if is_member:
+    if age>= 15:
+        print("tienes acceso ya que eres miembro y mayor o igual a 15 años")
+    else:
+        print("No tienes acceso ya que eres miembro pero menor a 15 años")
+else:
+    print("no eres miembro y NO TIENE ACCESO")

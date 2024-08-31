@@ -1,170 +1,98 @@
 # Control de Flujo en Python
 
-# Generadores e Iteradores
+# Bucles y Control de Iteraciones
 
-# Ejemplo de iterador
+numbers = [1,2,3,4,5,6]
+for i in numbers:
+    print("Aqui i es igual a:", i+1)
 
-# Crear una lista
+# Aqui i es igual a: 2
+# Aqui i es igual a: 3
+# Aqui i es igual a: 4
+# Aqui i es igual a: 5
+# Aqui i es igual a: 6
+# Aqui i es igual a: 7
 
-my_list = [1,2,3,4]
-
-# Obtener el iterador
-
-my_iter = iter(my_list)
-
-# Usar el iterador
-# print(next(my_iter))
-
-#1
-
-# print(next(my_iter))
-# print(next(my_iter))
-
-#1
-#2
-
-# print(next(my_iter))
-# print(next(my_iter))
-# print(next(my_iter))
-# print(next(my_iter))
-
-# 1
-# 2
-# 3
-# 4
-
-print(next(my_iter))
-print(next(my_iter))
-print(next(my_iter))
-print(next(my_iter))
-# print(next(my_iter))
-
-# Traceback (most recent call last):
-#   File "c:\Users\info\10002-python\clase17.py", line 40, in <module>
-#     print(next(my_iter))
-#           ^^^^^^^^^^^^^
-# StopIteration
-
-
-# Iterar en cadenas
-# Creando la cadena
-text = "Hola mundo"
-# Creando el iterador
-iter_text = iter(text)
-
-# Iterar en la cadena
-for char in iter_text:
-    print(char)
-
-# H
-# o
-# l
-# a
-
-# m
-# u
-# n
-# d
-# o
-
-# Crear un iterador para los numeros impares
-
-#Limite
-limit = 10
-
-#Crear iterador
-odd_itter =  iter(range(1,limit+1,2))
-
-# Usar el iterador
-for num in odd_itter:
-    print(num)
-
-# 1
-# 3
-# 5
-# 7
-# 9
-
-# Numeros pares
-odd_itter =  iter(range(0,limit+1,2))
-
-# Usar el iterador
-for num in odd_itter:
-    print(num)
+for i in range(10):
+    print(i)
 
 # 0
+# 1
 # 2
+# 3
 # 4
+# 5
 # 6
+# 7
 # 8
+# 9
+
+for i in range(1,11):
+    print(i)
+
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
 # 10
 
-# GENERADOR
+fruits = ["Manzana", "Pera", "Uva", "Naranja", "Tomate"]
+for fruit in fruits:
+    print(fruit)
+    if fruit == "Naranja":
+        print("Naranja encontrada")
 
-def my_generator():
-    yield 1
-    yield 2
-    yield 3
+# Manzana
+# Pera
+# Uva
+# Naranja
+# Naranja encontrada
+# Tomate
 
-for value in my_generator():
-    print(value)
-
-# 1
-# 2
-# 3
-
-# SERIE DE FIBONACCI
-
-#  1 1 2 3 5 8 13 21 . . .
-
-def fibonacci(limit):
-    a, b = 0, 1
-    while a< limit:
-        yield a
-        a,b = b, a+b
-
-for num in fibonacci(10):
-    print(num)
+x = 0
+while x<5:
+    print(x)
+    x += 1
 
 # 0
 # 1
-# 1
 # 2
 # 3
-# 5
-# 8
-
-print("***** RETO IMPARES ******")
-
-def odd_generator(limit):
-    odd_num = 1
-    while odd_num < limit:
-        yield odd_num
-        odd_num += 2
-for result in odd_generator(10):
-    print(result)
-
-# ***** RETO IMPARES ******
-# 1
-# 3
-# 5
-# 7
-# 9
-
-
-print("***** RETO PARES ******")
-
-def odd_generator(limit):
-    pair_num = 0
-    while pair_num < limit:
-        yield pair_num
-        pair_num += 2
-for result in odd_generator(10):
-    print(result)
-
-# ***** RETO PARES ******
-# 0
-# 2
 # 4
-# 6
-# 8
+
+x=0
+while x<5:
+    if x==3:
+        break
+    print(x)
+    x +=1
+
+# 0
+# 1
+# 2
+
+numbers = [1,2,3,4,5,6]
+for i in numbers:
+    if i == 3:
+        continue
+    print("Aqui i es igual a:", i)
+
+# Aqui i es igual a: 1
+# Aqui i es igual a: 2
+# Aqui i es igual a: 4
+# Aqui i es igual a: 5
+# Aqui i es igual a: 6
+
+numbers = [1,2,3,4,5,6]
+for i in numbers:
+    if i == 3:
+        break
+    print("Aqui i es igual a:", i)
+
+# Aqui i es igual a: 1
+# Aqui i es igual a: 2

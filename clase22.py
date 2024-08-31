@@ -1,224 +1,258 @@
-# Programación Orientada a Objetos en Python
+# Funciones y Manejo de Excepciones en Python
 
-# Fundamentos de Programación Orientada a Objetos en Python
+# Manejo de Excepciones en Python y uso de pass
 
 """
-La Programación Orientada a Objetos (POO) es un paradigma de programación que se basa en el uso de **objetos** para diseñar y desarrollar aplicaciones. Este enfoque se centra en crear software que sea modular, reutilizable y más fácil de mantener. Aquí están los fundamentos clave de la POO:
+¿Te estresas cuando te aparece un error en tu código? No te preocupes, todos los programadores nos enfrentamos a errores constantemente. De hecho, encontrar y solucionar errores es parte del trabajo diario de un programador. Sin embargo, lo que distingue a un buen programador de un excelente programador es la habilidad para manejar esos errores de manera efectiva. En este blog, exploraremos qué son las excepciones y los errores, por qué es importante manejarlos adecuadamente, y cómo hacerlo en Python.
 
-### 1. **Clases y Objetos**
+Errores y Excepciones
 
-- **Clase:** Una clase es un molde o plantilla que define las propiedades (atributos) y comportamientos (métodos) que tendrán los objetos creados a partir de ella. Por ejemplo, una clase Coche podría tener atributos como color, marca, y modelo, y métodos como arrancar() o frenar().
+Los términos “errores” y “excepciones” en el código a menudo se utilizan indistintamente, pero tienen diferencias clave:
 
-- **Objeto:** Un objeto es una instancia de una clase. Es un elemento concreto que se crea a partir de una clase, con valores específicos para sus atributos. Por ejemplo, un objeto de la clase Coche podría ser un coche rojo de la marca Toyota y modelo Corolla.
+Errores: Son problemas en el código que pueden ser sintácticos (como errores de escritura) o semánticos (como errores en la lógica del programa). Los errores detienen la ejecución del programa.
+Excepciones: Son eventos que ocurren durante la ejecución de un programa y que alteran el flujo normal del código. A diferencia de los errores, las excepciones pueden ser manejadas para evitar que el programa se detenga.
+Comprender los errores y las excepciones es vital porque:
 
-### 2. **Encapsulamiento**
+Mejora la calidad del código: Permite escribir programas más robustos y menos propensos a fallos.
+Facilita la depuración: Ayuda a identificar y solucionar problemas de manera más eficiente.
+Mejora la experiencia del usuario: Evita que el programa se cierre abruptamente, ofreciendo mensajes de error claros y manejables.
 
-- El encapsulamiento consiste en ocultar los detalles internos de un objeto y exponer sólo lo necesario. Esto se logra mediante el uso de **modificadores de acceso** como private, protected, y public, que controlan qué partes de un objeto pueden ser accedidas o modificadas desde fuera de su clase. Esto protege los datos y asegura que solo se modifiquen de manera controlada.
+Errores Básicos en Python
 
-### 3. **Herencia**
+Antes de profundizar en el manejo de excepciones, es importante familiarizarnos con algunos errores comunes en Python.
 
-- La herencia permite crear nuevas clases basadas en clases existentes. Una clase que hereda de otra (llamada **subclase** o **clase derivada**) toma los atributos y métodos de la clase base (llamada **superclase** o **clase padre**), y puede añadir o modificar funcionalidades. Esto fomenta la reutilización del código y la creación de jerarquías de clases. Por ejemplo, si tenemos una clase Vehículo, podemos crear una subclase Coche que herede de Vehículo.
+SyntaxError
 
-### 4. **Polimorfismo**
+El SyntaxError ocurre cuando hay un error en la sintaxis del código. Por ejemplo:
 
-- El polimorfismo permite que un mismo método o función pueda tener diferentes comportamientos según el objeto que lo invoque. Existen dos tipos principales de polimorfismo:
+# Código con SyntaxError
+print("Hola Mundo"
+Resultado:
 
-- **Polimorfismo en tiempo de compilación (sobrecarga):** Permite definir varios métodos con el mismo nombre pero diferentes parámetros.
+SyntaxError: unexpected EOF while parsing
+TypeError
+El TypeError se produce cuando se realiza una operación en un tipo de dato inapropiado. Por ejemplo:
 
-- **Polimorfismo en tiempo de ejecución (sobreescritura):** Permite que una subclase redefina un método de su superclase para modificar su comportamiento.
+# Código con TypeError
+resultado = "10" + 5
+Resultado:
 
-### 5. **Abstracción**
+TypeError: can only concatenate str (not "int") to str
+Estos son solo algunos ejemplos de los errores más comunes que se pueden encontrar en Python. Ahora, veamos cómo manejar excepciones para evitar que estos errores detengan la ejecución de nuestro programa.
 
-- La abstracción consiste en representar conceptos esenciales sin incluir detalles de implementación específicos. Las clases abstractas y las interfaces son herramientas que permiten definir métodos sin implementarlos, dejando que las clases derivadas proporcionen la implementación. Esto facilita la creación de sistemas flexibles y extensibles.
+La Estructura del try-except
 
-### 6. **Modularidad**
+En Python, el manejo de excepciones se realiza principalmente a través de la estructura try-except. Esta estructura permite intentar ejecutar un bloque de código y capturar las excepciones que puedan ocurrir, proporcionando una forma de manejar los errores de manera controlada. Esto no solo evita que el programa se detenga abruptamente, sino que también ofrece la oportunidad de informar al usuario sobre lo que salió mal y cómo puede solucionarlo.
 
-- La POO promueve la división del software en módulos o componentes independientes (objetos), que pueden ser desarrollados, testeados y mantenidos por separado, pero que funcionan juntos como un todo coherente.
+¿Qué hace try?
 
-### 7. **Relaciones entre Objetos**
+La palabra clave try se utiliza para definir un bloque de código donde se anticipa que puede ocurrir un error. Python ejecuta este bloque y, si ocurre una excepción, transfiere el control al bloque except.
 
-- Las clases y objetos pueden relacionarse de varias maneras, como:
+¿Qué hace except?
 
-- **Asociación:** Una relación donde un objeto utiliza a otro.
+La palabra clave except define un bloque de código que se ejecuta si ocurre una excepción en el bloque try. Aquí es donde podemos manejar el error, limpiar el desorden, o proporcionar mensajes informativos al usuario.
 
-- **Agregación:** Una forma más débil de asociación, donde un objeto contiene referencias a otros objetos.
+Estructura Básica
 
-- **Composición:** Una forma más fuerte de agregación, donde un objeto contiene y controla completamente a otros objetos.
+La estructura básica de try-except es la siguiente:
 
-### Ventajas de la POO:
+try:
+    # Código que puede generar una excepción
+    pass
+except NombreDeLaExcepcion:
+    # Código que maneja la excepción
+    pass
 
-- **Reutilización de código:** Las clases pueden reutilizarse en diferentes partes de un programa o en diferentes proyectos.
+¿Por qué es importante manejar las excepciones?
 
-- **Facilidad de mantenimiento:** El encapsulamiento y la modularidad facilitan la localización y corrección de errores.
+Permitir que los errores sigan su curso sin control puede tener varias consecuencias negativas:
 
-- **Facilidad de expansión:** La herencia y la abstracción permiten agregar nuevas funcionalidades sin alterar el código existente.
+Interrupción del programa: Un error no manejado puede hacer que tu programa se detenga abruptamente, causando frustración en los usuarios.
+Pérdida de datos: Si el programa se cierra inesperadamente, es posible que se pierdan datos importantes no guardados.
+Mala experiencia del usuario: Los usuarios prefieren programas que manejen errores de manera elegante y les proporcionen mensajes claros sobre lo que salió mal y cómo pueden solucionarlo.
+Manejar las excepciones con try-except permite:
 
-- **Flexibilidad:** El polimorfismo permite que el código sea más flexible y fácil de extender.
-
-Estos fundamentos hacen de la POO un enfoque poderoso y ampliamente utilizado en el desarrollo de software moderno.
+Continuidad del programa: Permite que el programa continúe ejecutándose incluso cuando se encuentra un error.
+Mensajes de error claros: Proporciona mensajes específicos que pueden ayudar al usuario a corregir el problema.
+Mejor depuración: Facilita la identificación y corrección de errores, haciendo el proceso de depuración más eficiente.
+Ejemplo de try-except
 """
 
-# class Person:
-#     def __init__(self, name, age):
-#         self.x = name
-#         self.age = age
-
-#     def greet(self):
-#         print(f"Hola, mi nombre es {self.x} y tengo {self.age}")
-
-# person1 = Person("Ana", 30)
-# person2 = Person("Luis", 25)
-
-# person1.greet()
-# person2.greet()
-
-class BankAccount:
-    def __init__(self, account_holder, balance):
-        self.account_holder = account_holder
-        self.balance = balance
-        self.is_active = True
-    
-    def deposit(self, amount):
-        if self.is_active:
-            self.balance += amount
-            print(f"Se ha depositado {amount}, saldo actual {self.balance}")
-        else:
-            print("No se puede depositar, Cuenta inactiva")
-    
-    def withdraw(self, amount):
-        if self.active:
-            if amount <= self.balance:
-                self.balance -= amount
-                print(f"Se ha retirado {amount}, Saldo acutal es {self.balance}")
-
-    def deactivate_account(self):
-        self.is_active = False
-        print(f"La cuenta ha sido desactivada")
-
-    def activate_account(self):
-        self.is_active = True
-        print("La cuenta ha sido activada")
-    
-account1 = BankAccount("Ana", 500)
-account2 = BankAccount("Luis", 1000)
-
-# Llamada a los métodos
-
-account1.deposit(200)
-account2.deposit(100)
-account1.deactivate_account()
-account1.deposit(50)
-
-account1.activate_account()
-account1.deposit(50)
+# try:
+#     valor = int(input("Ingresa un número: "))
+#     resultado = 10 / valor
+#     print(f"El resultado es {resultado}")
+# except ValueError:
+#     print("Por favor, ingresa un número válido.")
+# except ZeroDivisionError:
+#     print("No se puede dividir por cero.")
 
 
+"""
+Resultado:
 
-# https://j2logo.com/python/tutorial/programacion-orientada-a-objetos/
+# Si el usuario ingresa "a":
+Por favor, ingresa un número válido.
 
-# class Perro:
-#     def sonido(self):
-#         print('Guauuuuu!!!')
-# class Gato:
-#     def sonido(self):
-#         print('Miaaauuuu!!!')        
-# class Vaca:
-#     def sonido(self):
-#         print('Múuuuuuuu!!!')
-# def a_cantar(animales):
-#     for animal in animales:
-#         animal.sonido()
-# if __name__ == '__main__':
-#     perro = Perro()
-#     gato = Gato()
-#     gato_2 = Gato()
-#     vaca = Vaca()
-#     perro_2 = Perro()
-#     granja = [perro, gato, vaca, gato_2, perro_2]
-#     a_cantar(granja)
+# Si el usuario ingresa "0":
+No se puede dividir por cero.
+
+Jerarquía de Excepciones
+
+En Python, las excepciones están organizadas en una jerarquía, donde las excepciones más generales se encuentran en la parte superior y las más específicas en la parte inferior. Por ejemplo:
+
+Jerarquia de Excepciones
+
+Exception
+    ArithmeticError
+        FloatingPointError
+        OverflowError
+        ZeroDivisionError
+    AssertionError
+    AttributeError
+    BufferError
+    EOFError
+    ImportError
+        ModuleNotFoundError
+        ZipImportError
+    LookupError
+        IndexError
+        KeyError
+        CodecRegistryError
+    MemoryError
+    NameError
+        UnboundLocalError
+    OSError
+        BlockingIOError
+        ChildProcessError
+        ConnectionError
+            BrokenPipeError
+            ConnectionAbortedError
+            ConnectionRefusedError
+            ConnectionResetError
+        FileExistsError
+        FileNotFoundError
+        InterruptedError
+        IsADirectoryError
+        NotADirectoryError
+        PermissionError
+        ProcessLookupError
+        TimeoutError
+        UnsupportedOperation
+    ReferenceError
+    RuntimeError
+        NotImplementedError
+        RecursionError
+        _DeadlockError
+    StopAsyncIteration
+    StopIteration
+    SyntaxError
+        IndentationError
+            TabError
+    SystemError
+        CodecRegistryError
+    TypeError
+    ValueError
+        UnicodeError
+            UnicodeDecodeError
+            UnicodeEncodeError
+            UnicodeTranslateError
+        UnsupportedOperation
+    Warning
+        BytesWarning
+        DeprecationWarning
+        EncodingWarning
+        FutureWarning
+        ImportWarning
+        PendingDeprecationWarning
+        ResourceWarning
+        RuntimeWarning
+        SyntaxWarning
+        UnicodeWarning
+        UserWarning
+    ExceptionGroup
+
+Conocer esta jerarquía es útil para manejar excepciones de manera más precisa y efectiva.
+
+Ejemplos Prácticos
+Ejemplo 1: Manejo de ValueError
+"""
+
+# try:
+#     edad = int(input("Introduce tu edad: "))
+#     print(f"Tu edad es {edad}")
+# except ValueError:
+#     print("Error: Debes introducir un número.")
+
+"""
+Resultado:
+
+# Si el usuario ingresa "veinte":
+Error: Debes introducir un número.
+Ejemplo 2: Manejo de múltiples excepciones
+try:
+    divisor = int(input("Ingresa un número divisor: "))
+    resultado = 100 / divisor
+    print(f"El resultado es {resultado}")
+except ValueError:
+    print("Error: Debes introducir un número válido.")
+except ZeroDivisionError:
+    print("Error: No se puede dividir por cero.")
+Resultado:
+
+# Si el usuario ingresa "cero":
+Error: No se puede dividir por cero.
+Ejemplo 3: Manejo General de Excepciones
+"""
+
+# try:
+#     nombre = input("Introduce tu nombre: ")
+#     print(f"Hola, {nombre}!")
+# except Exception as e:
+#     print(f"Ha ocurrido un error: {e}")
+
+"""
+Resultado:
+
+Hola, Juan!
+Explorando la Jerarquía de Excepciones en Python
+En Python, las excepciones están organizadas en una jerarquía de clases, donde cada excepción específica es una subclase de la clase base Exception.
+
+El código proporcionado utiliza recursión para imprimir esta jerarquía comenzando desde la clase base Exception. Cada clase de excepción se muestra indentada según su nivel en la jerarquía, lo que ayuda a visualizar cómo están relacionadas las excepciones entre sí.
+"""
+
+def print_exception_hierarchy(exception_class, indent=0):
+    print(' ' * indent + exception_class.__name__)
+    for subclass in exception_class.__subclasses__():
+        print_exception_hierarchy(subclass, indent + 4)
+
+# Imprimir la jerarquía comenzando desde la clase base Exception
+print_exception_hierarchy(Exception)
+
+"""
+Ahora te toca a ti! Ejecuta el código y observa cómo se imprime la jerarquía de excepciones, esto te permitirá comprender mejor cómo están estructuradas las excepciones y cómo puedes aprovechar esta estructura para manejar errores de manera más efectiva en tus programas.
+
+Uso de pass
+
+Antes de concluir, hablemos del uso de pass. Imagina que estás creando una función que sabes que vas a necesitar, pero no quieres crear la lógica ahora mismo y sigues con el código. Si solo pones el def sin el cuerpo o código dentro del nivel de indentación de la función, te producirá un error IndentationError.
+
+Puedes solucionar esto usando pass, que es una declaración nula; no hace nada cuando se ejecuta, pero es útil como un marcador de posición para que la estructura del código sea válida.
+
+Ejemplo de pass
+
+def mi_funcion():
+    pass  # Marcador de posición para el cuerpo de la función
+
+print("Continuando con el código...")
+
+Resultado:
+
+Continuando con el código...
+
+En este ejemplo, pass permite definir la estructura de la función sin implementar la lógica de inmediato, evitando errores de indentación y permitiendo continuar con el desarrollo del código.
+
+A medida que utilices nuevas herramientas en Python, como librerías y otros tipos de datos, te encontrarás con excepciones específicas de esas herramientas. Familiarizarte con las excepciones comunes de cada librería te permitirá manejarlas de manera más efectiva y escribir código más robusto. Recuerda, el manejo adecuado de excepciones no solo mejora tu código, sino que también te convierte en un programador más competente y confiable.
+"""
 
 
 
-
-# # Enter your date automatic
-# class Enter_Date:
-#     def __init__(self, name, years):
-#         self.DateN = []
-#         self.name = name
-#         self.years = years
-#         self.available = True
-
-#     def list_date(self):
-#         if self.available:
-#             self.DateN.append(self.name)
-#             self.DateN.append(self.years)
-#             return self.DateN
-
-
-# class start:
-#     def __init__(self):
-#         self.var1 = ""
-#         self.var2 = ""
-
-#     def conversation(self):
-#         print("Hello today we are going to store data ")
-#         print("1.Enter date ")
-#         print("2.End ")
-#         Enter1 = int(input())
-#         if Enter1 == 1:
-#             self.var1 = input("Enter your name: ")
-#             self.var2 = input("Enter your age: ")
-#             return self.var1, self.var2
-#         else:
-#             print("Coming out")
-
-
-# income = int(input("Please income how much data going to Enter "))
-# all_data = []
-
-# user1 = None
-# for i in range(income):
-#     person1 = start()
-#     person1.conversation()
-
-#     user1 = Enter_Date(person1.var1, person1.var2)
-#     all_data.append(user1.list_date())
-
-# print(all_data)
-
-
-# class Rol_family:
-#     def __init__(self, data):
-#         self.data = data
-#         self.occupation = []
-
-#     def enter_date(self, index):
-#         adjusted_index = index - 1
-#         if adjusted_index < len(self.data):
-#             name, age = self.data[adjusted_index]
-#             print(f"Hola {name} a question")
-#             occupation_data = input("What is your occupation in the family? ")
-#             self.occupation.append(occupation_data)
-#             return occupation_data
-#         else:
-#             return "Index out of range"
-
-#     def result_date(self, index):
-#         if index < len(self.occupation):
-#             name, age = self.data[index]
-#             print(f"{name} of {age} ages your occupation in family is {self.occupation[index]}")
-#         else:
-#             print("Index out of range")
-
-
-# start_family = Rol_family(all_data)
-
-# for i in range(len(all_data)):
-#     index_to_retrieve = int(input("Enter the index of the data you want to retrieve: "))
-#     print(start_family.enter_date(index_to_retrieve))
-
-# print(start_family.occupation)
-# one = 0
-# while one < len(all_data):
-#     start_family.result_date(one)
-#     one += 1
