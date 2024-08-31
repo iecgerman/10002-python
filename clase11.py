@@ -1,6 +1,6 @@
 # Colección y Procesamiento de Datos en Python
 
-# Método slice
+# Método slice 
 
 a = [1,2,3,4,5]
 b = a
