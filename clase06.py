@@ -1,3 +1,7 @@
+# Fundamentos de Programación y Python
+
+# Enteros, Flotantes y Booleanos
+
 x = 10
 y = 5.34543
 # z = 1.2e6
