@@ -1,3 +1,7 @@
+# Fundamentos de Programación y Python
+
+# Manipulación de Cadenas de Texto en Python
+
 """
 Manipulación de Cadenas de Texto en Python
 
