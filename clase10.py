@@ -1,6 +1,6 @@
 # Colección y Procesamiento de Datos en Python
 
-# Listas
+# Listas 
 
 to_do = ["Dirigirnos al hotel",
          "Ir a almorzar",
