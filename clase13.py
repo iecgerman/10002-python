@@ -1,6 +1,6 @@
 # Colección y Procesamiento de Datos en Python
 
-# Aplicación de Matrices
+# Aplicación de Matrices 
 
 """Las matrices son una herramienta fundamental en muchas áreas de la computación y las matemáticas. En Python, podemos usar listas dentro de listas para representar matrices bidimensionales (2D). Hoy, vamos a explorar varias aplicaciones prácticas de las matrices y cómo estas estructuras pueden ser usadas para representar tableros de juego.
 
