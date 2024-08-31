@@ -1,6 +1,6 @@
 # Colección y Procesamiento de Datos en Python
 
-# Diccionarios
+# Diccionarios 
 
 numbers = {1:"uno", 2:"dos", 3:"tres"}
 print(numbers)
