@@ -10,7 +10,9 @@ Errores y Excepciones
 Los términos “errores” y “excepciones” en el código a menudo se utilizan indistintamente, pero tienen diferencias clave:
 
 Errores: Son problemas en el código que pueden ser sintácticos (como errores de escritura) o semánticos (como errores en la lógica del programa). Los errores detienen la ejecución del programa.
+
 Excepciones: Son eventos que ocurren durante la ejecución de un programa y que alteran el flujo normal del código. A diferencia de los errores, las excepciones pueden ser manejadas para evitar que el programa se detenga.
+
 Comprender los errores y las excepciones es vital porque:
 
 Mejora la calidad del código: Permite escribir programas más robustos y menos propensos a fallos.
@@ -27,17 +29,20 @@ El SyntaxError ocurre cuando hay un error en la sintaxis del código. Por ejempl
 
 # Código con SyntaxError
 print("Hola Mundo"
-Resultado:
 
+Resultado:
 SyntaxError: unexpected EOF while parsing
+
 TypeError
+
 El TypeError se produce cuando se realiza una operación en un tipo de dato inapropiado. Por ejemplo:
 
 # Código con TypeError
 resultado = "10" + 5
-Resultado:
 
+Resultado:
 TypeError: can only concatenate str (not "int") to str
+
 Estos son solo algunos ejemplos de los errores más comunes que se pueden encontrar en Python. Ahora, veamos cómo manejar excepciones para evitar que estos errores detengan la ejecución de nuestro programa.
 
 La Estructura del try-except
@@ -175,7 +180,9 @@ Exception
 Conocer esta jerarquía es útil para manejar excepciones de manera más precisa y efectiva.
 
 Ejemplos Prácticos
+
 Ejemplo 1: Manejo de ValueError
+
 """
 
 # try:
@@ -188,8 +195,11 @@ Ejemplo 1: Manejo de ValueError
 Resultado:
 
 # Si el usuario ingresa "veinte":
+
 Error: Debes introducir un número.
+
 Ejemplo 2: Manejo de múltiples excepciones
+
 try:
     divisor = int(input("Ingresa un número divisor: "))
     resultado = 100 / divisor
@@ -198,10 +208,13 @@ except ValueError:
     print("Error: Debes introducir un número válido.")
 except ZeroDivisionError:
     print("Error: No se puede dividir por cero.")
+
 Resultado:
 
 # Si el usuario ingresa "cero":
+
 Error: No se puede dividir por cero.
+
 Ejemplo 3: Manejo General de Excepciones
 """
 
