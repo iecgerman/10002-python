@@ -1,6 +1,6 @@
 # Colección y Procesamiento de Datos en Python
 
-# Listas de más dimensiones y Tuplas
+# Listas de más dimensiones y Tuplas 
 
 matrix = [[1,2,3],
           [4,5,6],
