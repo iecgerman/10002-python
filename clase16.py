@@ -1,6 +1,6 @@
 # Control de Flujo en Python
 
-# Estructuras condicionales
+# Estructuras condicionales 
 
 # x = 5
 
