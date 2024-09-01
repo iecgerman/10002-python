@@ -1,6 +1,6 @@
 # Control de Flujo en Python
 
-# Bucles y Control de Iteraciones
+# Bucles y Control de Iteraciones 
 
 numbers = [1,2,3,4,5,6]
 for i in numbers:
