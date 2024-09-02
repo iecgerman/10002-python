@@ -2,6 +2,20 @@
 
 # Manejo de Excepciones en Python y uso de pass
 
+while True:
+    try:
+        divisor = int(input("Ingresa un numero divisor: "))
+        result = 100/divisor
+        print(result)
+    except ZeroDivisionError as e:
+        print("ERROR: No se puede dividir entre 0")
+        print("Ha ocurrido un error del tipo:", e)
+    except ValueError as e:
+        print("ERROR: Debes introducir cualquier numero que no sea cero")
+        print("Ha ocurrido un error del tipo:", e)
+
+# QUITARON LA CLASE PASADA DONDE VENIA TODO ESTO:
+
 """
 ¿Te estresas cuando te aparece un error en tu código? No te preocupes, todos los programadores nos enfrentamos a errores constantemente. De hecho, encontrar y solucionar errores es parte del trabajo diario de un programador. Sin embargo, lo que distingue a un buen programador de un excelente programador es la habilidad para manejar esos errores de manera efectiva. En este blog, exploraremos qué son las excepciones y los errores, por qué es importante manejarlos adecuadamente, y cómo hacerlo en Python.
 
