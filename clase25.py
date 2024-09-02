@@ -1,91 +1,80 @@
 # Programación Orientada a Objetos en Python
 
-# Ejercicio Biblioteca con POO
+# Herencia en POO con Python
 
-class Book:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
-        self.available = True
+"""La herencia, junto con la encapsulación y el polimorfismo, es una de las tres características principales de la programación orientada a objetos. La herencia permite crear clases que reutilizan, extienden y modifican el comportamiento definido en otras clases. La clase cuyos miembros se heredan se denomina clase base o padre y la clase que hereda esos miembros se denomina clase derivada o clase hija. Una clase hija solo puede tener una clase padre directa, pero la herencia es transitiva. Si ClassC se deriva de ClassB y ClassB se deriva de ClassA, ClassC hereda los miembros declarados en ClassB y ClassA.
 
-    def borrow(self):
-        if self.available:
-            self.available = False
-            print(f"El libro {self.title} ha sido prestado")
-        else:
-            print(f"El libro {self.title} no esta disponible")
-        
-    def return_book(self):
-        self.available = True
-        print(f"El libro {self.title} ha sido devuelto")
+Un ejemplo sencillo de herencia que nos permite conceptualizarlo:"""
 
-class User:
-    def __init__(self, user_id, name):
-        self.user_id = user_id
-        self.name = name
-        self.borrowed_books = []
-
-    def borrow_book(self, book):
-        if book.available:
-            book.borrow()
-            self.borrowed_books.append(book)
-        else:
-            print(f"El libro {book.title} no esta disponible")
-    
-    def return_book(self, book):
-        if book in self.borrowed_books:
-            book.return_book()
-            self.borrowed_books.remove(book)
-        else:
-            print(f"El libro {book.title} no esta en la lista de prestados")
-
-class Library:
+class Mamifero:
     def __init__(self):
-        self.books = []
-        self.users = []
+        pass
+    
+    def features(self):
+        print('Tiene pelaje y glandulas mamarias')
 
-    def add_book(self, book):
-        self.books.append(book)
-        print(f"El libro {book.title} ha sido agregado")
+class Perro(Mamifero):
+    def __init__(self):
+        pass
+    
+    def bark(self):
+        print('Woof!!')
+    
+    def walking(self):
+        print('Paseando alegre')
+        
+    def eat(self):
+        print('Comiendo contento')
 
-    def register_user(self, user):
-        self.users.append(user)
-        print(f"El usuario {user.user_id} {user.name} ha sido registrado")
+class Cachorro(Perro):
+    def __init__(self):
+        pass
+    
+    def play(self):
+        print('Jugando y mordiendo zapatos')
+        
+cachorro1 = Cachorro()
+cachorro1.bark()
+cachorro1.play()
+cachorro1.features()
 
-    def show_available_books(self):
-        print("Libros disponibles:")
-        for book in self.books:
-            if book.available:
-                print(f"{book.title} por {book.author}")
+# class Vehicle:
+#     def __init__(self, brand, model, price):
+#         self.brand = brand
+#         self.model = model
+#         self.price = price
+#         self.is_available = True
 
-# Crear los libros
-book1 = Book("El principito", "Antoine de saint")
-book2 = Book("1984", "George Orwell")
-book3 = Book("El Padrino", "Mario Puzo")
+#     def sell(self):
+#         if self.is_available:
+#             self.is_available = False
+#             print(f"El vehiculo {self.brand}, ha sido vendido")
+#         else:
+#             print(f"El vehiculo {self.brand}, no esta disponible")
+    
+#     def check_available(self):
+#         return self.is_available
+    
+#     def get_price(self):
+#         return self.price
+    
+#     def start_engine(self):
+#         raise NotImplementedError("Este metodo debe ser implementado por la subclase(clase hija)")
+    
+#     def stop_engine(self):
+#         raise NotImplementedError("Este metodo debe ser implementado por la subclase(clase hija)")
+    
+# class Car(Vehicle):
+#     def start_engine(self):
+#         if not self.is_available:
+#             return print(f"el motor del coche {self.brand} esta en marcha")
+#         else:
+#             return print(f"el coche {self.brand} no esta disponible")
+        
+#     def stop_engine(self):
+#         if self.is_available:
+#             return print(f"El motor del coche {self.brand} se ha detenido")
+#         else:
+#             return print(f"El coche {self.brand} no esta disponible")
+        
 
-# Crear usuario
-user1 = User("001", "German")
-user2 = User("002", "Yanira Mendoza")
-
-# Crear Biblioteca
-library = Library()
-library.add_book(book1)
-library.add_book(book2)
-library.add_book(book3)
-library.register_user(user1)
-library.register_user(user2)
-
-# Mostrar libros
-library.show_available_books()
-
-# Realizar prestamo
-user1.borrow_book(book1)
-
-# Mostrar libros
-library.show_available_books()
-
-# Devolver libro
-user1.return_book(book1)
-
-# Mostrar libros
-library.show_available_books()
