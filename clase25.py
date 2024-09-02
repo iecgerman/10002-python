@@ -1,6 +1,6 @@
 # Programación Orientada a Objetos en Python
 
-# Herencia en POO con Python 
+# Herencia en POO con Python
 
 """La herencia, junto con la encapsulación y el polimorfismo, es una de las tres características principales de la programación orientada a objetos. La herencia permite crear clases que reutilizan, extienden y modifican el comportamiento definido en otras clases. La clase cuyos miembros se heredan se denomina clase base o padre y la clase que hereda esos miembros se denomina clase derivada o clase hija. Una clase hija solo puede tener una clase padre directa, pero la herencia es transitiva. Si ClassC se deriva de ClassB y ClassB se deriva de ClassA, ClassC hereda los miembros declarados en ClassB y ClassA.
 
