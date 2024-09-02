@@ -1,6 +1,6 @@
 # Funciones y Manejo de Excepciones en Python
 
-# Funciones Lambda y Programación Funcional en Python
+# Funciones Lambda y Programación Funcional en Python 
 
 sumando = lambda a,b: a + b
 print(sumando(10,4))
