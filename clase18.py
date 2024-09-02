@@ -1,6 +1,6 @@
 # Control de Flujo en Python
 
-# Generadores e Iteradores
+# Generadores e Iteradores 
 
 # Ejemplo de iterador
 
