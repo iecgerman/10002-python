@@ -1,6 +1,6 @@
 # Biblioteca estándar en Python
 
-# Librería Os, Math y Random
+# Librería Os, Math y Random 
 
 # import os
 
